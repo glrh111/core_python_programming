@@ -4,8 +4,8 @@
 from socket import *
 from time import ctime
 
-HOST = 'glrh11.com'
-PORT = 80
+HOST = 'localhost'
+PORT = 8888
 BUFSIZE = 1024
 ADDR = (HOST, PORT)
 
@@ -25,7 +25,7 @@ while True:
 
     tcp_cli_sock.send(data)
 
-    r_data = tcp_cli_sock.recv(10)
+    r_data = tcp_cli_sock.recv(1024)
     if not r_data:
         break
 

@@ -175,4 +175,34 @@ StreamRequestHandler, DatagramRequestHandler | 实现TCP/UDP服务器的服务�
 
 ### 创建TCP客户端
 
+## Twisted 框架介绍
+
+完整的事件驱动的网络框架, 也可以开发异步的网络应用程序和协议.
+
+网络协议, 线程, 安全性和身份验证, 聊天/IM, DBM及RDBMS数据库集成, Web/因特网, 电子邮件, 命令行参数, GUI集成工具包
+
+reactor, protocol
+
+### 创建Twisted Reactor TCP 服务器
+
+### 创建Twisted Reactor TCP 客户端
+
+
+## 相关模块
+
+开发底层socket程序时, 常配合使用socket和select, 
+ 
+模块 | 描述
+---|---
+socket | 底层网络编程接口
+asyncore asynchat | 异步处理客户端
+select | 单线程网络服务应用中, 管理多个socket
+SocketServer | 高级socket模块
+
+Concurrence是一个更现代化的网络框架. 底层使用libevent
+
+使用轻量级线程, 以事件驱动的方式, 进行进程间通信和消息传递工作.
+
+
+
 
