@@ -1,18 +1,32 @@
 #! /usr/bin/env python
 # coding: utf-8
 
-from socket import AF_INET, SOCK_STREAM, SOCK_DGRAM, socket
+from socket import *
+from time import ctime
 
-so = socket(AF_INET, SOCK_STREAM)
+HOST = ''
+PORT = 21567
+BUFSIZE = 1024
+ADDR = (HOST, PORT)
 
-print so.family, so.type, so.proto
-
-so.bind(('127.0.0.1', 8888))
-
-so.listen(5)
+tcp_ser_sock = socket(AF_INET, SOCK_STREAM)
+tcp_ser_sock.bind(ADDR)
+tcp_ser_sock.listen(5)
 
 while True:
+    print 'Waiting for connection ...'
+    tcp_cli_sock, addr = tcp_ser_sock.accept()
+    print '...connected from: ', addr
 
-    cs = so.accept()
+    while True:
+        data = tcp_cli_sock.recv(BUFSIZE)
+        if not data:
+            break
 
-    cs.
+        tcp_cli_sock.send(
+            '[{}] {}'.format(ctime(), data)
+        )
+
+    tcp_cli_sock.close()
+
+tcp_ser_sock.close()
