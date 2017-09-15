@@ -1,0 +1,3 @@
+import CGIHTTPServer
+
+CGIHTTPServer.test()
