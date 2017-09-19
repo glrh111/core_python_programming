@@ -2,6 +2,7 @@
 
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 
+
 class MyHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
@@ -15,6 +16,7 @@ class MyHandler(BaseHTTPRequestHandler):
             f.close()
         except:
             self.send_error(404, 'file not found: [{}]'.format(self.path))
+
 
 def main():
     try:
